@@ -1,0 +1,476 @@
+/* Cloud Microservices Architecture Styles */
+:root {
+    --primary-color: #0d6efd;
+    --success-color: #198754;
+    --info-color: #0dcaf0;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --dark-color: #212529;
+    --light-bg: #f8f9fa;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+body {
+    background-color: var(--light-bg);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+}
+
+/* Cards */
+.architecture-card, 
+.monitoring-card, 
+.metrics-card, 
+.api-endpoints-card,
+.tech-stack-card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: none;
+    overflow: hidden;
+    height: 100%;
+}
+
+.card-header {
+    background: white;
+    border-bottom: 2px solid #e9ecef;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: between;
+    align-items: center;
+}
+
+.card-header h5 {
+    color: var(--dark-color);
+    font-weight: 600;
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.service-node {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px solid #dee2e6;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: var(--transition);
+    cursor: pointer;
+    position: relative;
+}
+
+.service-node:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
+}
+
+.service-node.healthy {
+    border-color: var(--success-color);
+}
+
+.service-node.warning {
+    border-color: var(--warning-color);
+}
+
+.service-node.error {
+    border-color: var(--danger-color);
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.service-name {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+}
+
+.service-status {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.service-status.healthy {
+    background-color: rgba(25, 135, 84, 0.1);
+    color: var(--success-color);
+}
+
+.service-status.warning {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: #d39e00;
+}
+
+.service-status.error {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: var(--danger-color);
+}
+
+/* Cluster Stats */
+.cluster-stats {
+    background: #f8f9fa;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.stat-item:last-child {
+    margin-bottom: 0;
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--dark-color);
+    line-height: 1;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+/* Services Table */
+.table th {
+    border-top: none;
+    font-weight: 600;
+    color: var(--dark-color);
+    background-color: #f8f9fa;
+    font-size: 0.875rem;
+}
+
+.table td {
+    vertical-align: middle;
+    font-size: 0.875rem;
+}
+
+.service-badge {
+    font-size: 0.75rem;
+    padding: 0.35em 0.65em;
+}
+
+.instances-count {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.uptime-badge {
+    background: rgba(25, 135, 84, 0.1);
+    color: var(--success-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* API Endpoints */
+.endpoint-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.endpoint-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.endpoint-item:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.endpoint-method {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    min-width: 60px;
+    text-align: center;
+}
+
+.endpoint-method.get {
+    background: rgba(25, 135, 84, 0.1);
+    color: var(--success-color);
+}
+
+.endpoint-method.post {
+    background: rgba(13, 110, 253, 0.1);
+    color: var(--primary-color);
+}
+
+.endpoint-method.put {
+    background: rgba(255, 193, 7, 0.1);
+    color: #d39e00;
+}
+
+.endpoint-method.delete {
+    background: rgba(220, 53, 69, 0.1);
+    color: var(--danger-color);
+}
+
+.endpoint-url {
+    flex: 1;
+    margin: 0 1rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+}
+
+.endpoint-status {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--success-color);
+}
+
+.endpoint-status.down {
+    background: var(--danger-color);
+}
+
+/* Impact Showcase */
+.impact-showcase {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: 2px solid #e9ecef;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+}
+
+.impact-metric h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.impact-metric p {
+    color: #6c757d;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Technology Stack */
+.tech-category {
+    text-align: center;
+    padding: 1rem;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.tech-tags .badge {
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+}
+
+/* Charts */
+.metrics-card canvas {
+    max-height: 200px;
+}
+
+/* Loading States */
+.loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: inherit;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Hover Effects */
+.service-node:hover .service-icon {
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-header {
+        text-align: center;
+        padding: 1.5rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-node {
+        padding: 1rem;
+    }
+    
+    .cluster-stats {
+        margin-top: 2rem;
+    }
+    
+    .impact-showcase {
+        padding: 1.5rem;
+    }
+    
+    .impact-metric h3 {
+        font-size: 2rem;
+    }
+    
+    .tech-category {
+        margin-bottom: 1.5rem;
+    }
+    
+    .endpoint-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .endpoint-url {
+        margin: 0;
+        word-break: break-all;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-header {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .monitoring-filters,
+    .architecture-controls {
+        width: 100%;
+    }
+    
+    .stat-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .stat-icon {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Smooth Transitions */
+* {
+    transition: color 0.15s ease-in-out, 
+                background-color 0.15s ease-in-out, 
+                border-color 0.15s ease-in-out, 
+                box-shadow 0.15s ease-in-out;
+}
+
+/* Button Hover Effects */
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Custom Scrollbar */
+.endpoint-list::-webkit-scrollbar,
+.table-responsive::-webkit-scrollbar {
+    width: 6px;
+}
+
+.endpoint-list::-webkit-scrollbar-track,
+.table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.endpoint-list::-webkit-scrollbar-thumb,
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.endpoint-list::-webkit-scrollbar-thumb:hover,
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}

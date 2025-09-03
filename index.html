@@ -3,336 +3,353 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechMart Pro | KalaGoon E-Commerce Solution</title>
+    <title>Cloud Microservices Architecture | KalaGoon Cloud Solutions</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="assets/store.css" rel="stylesheet">
+    <link href="assets/microservices.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="#">
-                <i class="fas fa-store me-2"></i>TechMart Pro
+                <i class="fas fa-cloud me-2"></i>CloudOps Dashboard
             </a>
             
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#products">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#features">Features</a>
-                    </li>
-                </ul>
-                
-                <div class="navbar-nav">
-                    <div class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-user me-1"></i>Account
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" onclick="showLogin()">Login</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="showRegister()">Register</a></li>
-                        </ul>
-                    </div>
-                    
-                    <a class="nav-link position-relative" href="#" onclick="showCart()">
-                        <i class="fas fa-shopping-cart me-1"></i>Cart
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount">0</span>
+            <div class="navbar-nav ms-auto">
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-user-shield"></i> DevOps Admin
                     </a>
-                    
-                    <a class="nav-link" href="https://github.com/prathmeshcode/ecommerce-platform" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-cogs me-2"></i>Cluster Config</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-download me-2"></i>Export Logs</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                    </ul>
                 </div>
+                <a class="nav-link" href="https://github.com/prathmeshcode/cloud-microservices" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section d-flex align-items-center">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="hero-content">
-                        <div class="badge bg-success mb-3 fs-6">
-                            <i class="fas fa-award me-1"></i> E-Commerce Excellence
+    <!-- Main Container -->
+    <div class="container-fluid py-4">
+        <!-- Header Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="dashboard-header">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h2 class="fw-bold mb-1">
+                                <i class="fas fa-cubes me-2 text-primary"></i>
+                                Microservices Architecture Dashboard
+                            </h2>
+                            <p class="text-muted mb-0">
+                                <i class="fas fa-server me-2"></i>Kubernetes Cluster: production-cluster-01
+                                <span class="badge bg-success ms-2">
+                                    <i class="fas fa-circle pulse"></i> All Services Healthy
+                                </span>
+                            </p>
                         </div>
-                        <h1 class="display-4 fw-bold mb-4">
-                            Complete <span class="text-primary">E-Commerce</span> Platform
-                        </h1>
-                        <p class="lead mb-4">
-                            Modern online store with advanced features: product management, secure payments, 
-                            inventory tracking, and comprehensive analytics dashboard.
-                        </p>
-                        
-                        <!-- Business Impact Stats -->
-                        <div class="row g-3 mb-4">
-                            <div class="col-4">
-                                <div class="stat-item text-center">
-                                    <h3 class="text-success fw-bold mb-1">300%</h3>
-                                    <small class="text-muted">Sales Increase</small>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="stat-item text-center">
-                                    <h3 class="text-success fw-bold mb-1">50%</h3>
-                                    <small class="text-muted">Cost Reduction</small>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="stat-item text-center">
-                                    <h3 class="text-success fw-bold mb-1">24/7</h3>
-                                    <small class="text-muted">Sales Active</small>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Tech Stack -->
-                        <div class="tech-stack mb-4">
-                            <h6 class="fw-bold mb-2">Tech Stack:</h6>
-                            <span class="badge bg-info me-2 mb-2">React</span>
-                            <span class="badge bg-success me-2 mb-2">Node.js</span>
-                            <span class="badge bg-warning text-dark me-2 mb-2">Stripe API</span>
-                            <span class="badge bg-primary me-2 mb-2">MongoDB</span>
-                            <span class="badge bg-secondary me-2 mb-2">Express.js</span>
-                        </div>
-                        
-                        <div class="hero-actions">
-                            <button class="btn btn-primary btn-lg me-3" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">
-                                <i class="fas fa-shopping-bag me-2"></i>Shop Now
-                            </button>
-                            <button class="btn btn-outline-primary btn-lg" onclick="showDemo()">
-                                <i class="fas fa-play me-2"></i>Watch Demo
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-6">
-                    <div class="hero-showcase">
-                        <div class="showcase-window">
-                            <div class="window-header">
-                                <div class="window-controls">
-                                    <span class="control close"></span>
-                                    <span class="control minimize"></span>
-                                    <span class="control maximize"></span>
-                                </div>
-                                <div class="window-title">TechMart Pro Dashboard</div>
-                            </div>
-                            <div class="window-content">
-                                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop" 
-                                     alt="E-Commerce Dashboard" class="img-fluid">
+                        <div class="col-md-4 text-md-end">
+                            <div class="cluster-info">
+                                <small class="text-muted">Last Updated:</small><br>
+                                <span class="fw-bold" id="lastUpdated"></span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Products Section -->
-    <section id="products" class="py-5 bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="fw-bold">Featured Products</h2>
-                    <p class="text-muted">Experience our complete e-commerce functionality</p>
-                </div>
-            </div>
-            
-            <!-- Product Filters -->
-            <div class="row mb-4">
-                <div class="col-lg-3">
-                    <div class="filter-card">
-                        <h6 class="fw-bold mb-3">Categories</h6>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="electronics" id="electronics" checked>
-                            <label class="form-check-label" for="electronics">Electronics (8)</label>
+        <!-- Architecture Overview -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="architecture-card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-sitemap me-2"></i>Microservices Architecture Overview
+                        </h5>
+                        <div class="architecture-controls">
+                            <button class="btn btn-sm btn-outline-primary" onclick="refreshServices()">
+                                <i class="fas fa-sync-alt"></i> Refresh
+                            </button>
+                            <button class="btn btn-sm btn-primary" onclick="showArchitecture()">
+                                <i class="fas fa-eye"></i> View Diagram
+                            </button>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="accessories" id="accessories">
-                            <label class="form-check-label" for="accessories">Accessories (5)</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="software" id="software">
-                            <label class="form-check-label" for="software">Software (3)</label>
-                        </div>
-                        
-                        <h6 class="fw-bold mb-3 mt-4">Price Range</h6>
-                        <div class="range-slider">
-                            <input type="range" class="form-range" min="0" max="50000" value="25000" id="priceRange">
-                            <div class="d-flex justify-content-between">
-                                <small>₹0</small>
-                                <small>₹50,000+</small>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="services-grid" id="servicesGrid">
+                                    <!-- Services will be loaded here -->
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="cluster-stats">
+                                    <h6 class="fw-bold mb-3">
+                                        <i class="fas fa-chart-pie me-2"></i>Cluster Statistics
+                                    </h6>
+                                    <div class="stat-item">
+                                        <div class="stat-icon bg-primary">
+                                            <i class="fas fa-cube"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <span class="stat-value">12</span>
+                                            <span class="stat-label">Active Services</span>
+                                        </div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-icon bg-success">
+                                            <i class="fas fa-server"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <span class="stat-value">6</span>
+                                            <span class="stat-label">Healthy Nodes</span>
+                                        </div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-icon bg-info">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <span class="stat-value">78%</span>
+                                            <span class="stat-label">CPU Utilization</span>
+                                        </div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-icon bg-warning">
+                                            <i class="fas fa-memory"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <span class="stat-value">64%</span>
+                                            <span class="stat-label">Memory Usage</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-lg-9">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <div>
-                            <span class="text-muted">Showing <strong>16 products</strong></span>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <select class="form-select form-select-sm" style="width: auto;">
-                                <option>Sort by Price</option>
-                                <option>Sort by Name</option>
-                                <option>Sort by Rating</option>
+            </div>
+        </div>
+
+        <!-- Service Health Monitoring -->
+        <div class="row mb-4">
+            <div class="col-lg-8">
+                <div class="monitoring-card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-heartbeat me-2"></i>Service Health Monitoring
+                        </h5>
+                        <div class="monitoring-filters">
+                            <select class="form-select form-select-sm" style="width: auto;" onchange="filterServices(this.value)">
+                                <option value="all">All Services</option>
+                                <option value="api">API Services</option>
+                                <option value="web">Web Services</option>
+                                <option value="data">Data Services</option>
                             </select>
                         </div>
                     </div>
-                    
-                    <div class="row g-4" id="productGrid">
-                        <!-- Products will be loaded here -->
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Service</th>
+                                        <th>Status</th>
+                                        <th>Instances</th>
+                                        <th>CPU</th>
+                                        <th>Memory</th>
+                                        <th>Uptime</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="servicesTable">
+                                    <!-- Service data will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="py-5">
-        <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-12">
-                    <h2 class="fw-bold">Platform Features</h2>
-                    <p class="text-muted">Everything you need for a successful online business</p>
                 </div>
             </div>
             
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="feature-card text-center p-4 h-100">
-                        <div class="feature-icon mb-3">
-                            <i class="fas fa-credit-card fa-3x text-primary"></i>
-                        </div>
-                        <h5>Secure Payments</h5>
-                        <p class="text-muted">Integrated with Stripe, PayPal, and Razorpay for secure transactions worldwide.</p>
+            <div class="col-lg-4">
+                <div class="api-endpoints-card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-link me-2"></i>Live API Endpoints
+                        </h5>
                     </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="feature-card text-center p-4 h-100">
-                        <div class="feature-icon mb-3">
-                            <i class="fas fa-boxes fa-3x text-success"></i>
+                    <div class="card-body">
+                        <div class="endpoint-list" id="apiEndpoints">
+                            <!-- API endpoints will be loaded here -->
                         </div>
-                        <h5>Inventory Management</h5>
-                        <p class="text-muted">Real-time stock tracking, automated reorder alerts, and supplier management.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="feature-card text-center p-4 h-100">
-                        <div class="feature-icon mb-3">
-                            <i class="fas fa-chart-line fa-3x text-warning"></i>
-                        </div>
-                        <h5>Analytics Dashboard</h5>
-                        <p class="text-muted">Comprehensive sales reports, customer insights, and performance metrics.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="feature-card text-center p-4 h-100">
-                        <div class="feature-icon mb-3">
-                            <i class="fas fa-mobile-alt fa-3x text-info"></i>
-                        </div>
-                        <h5>Mobile Optimized</h5>
-                        <p class="text-muted">Fully responsive design with mobile app features and push notifications.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="feature-card text-center p-4 h-100">
-                        <div class="feature-icon mb-3">
-                            <i class="fas fa-shipping-fast fa-3x text-danger"></i>
-                        </div>
-                        <h5>Order Management</h5>
-                        <p class="text-muted">Complete order lifecycle from placement to delivery with tracking integration.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="feature-card text-center p-4 h-100">
-                        <div class="feature-icon mb-3">
-                            <i class="fas fa-users fa-3x text-secondary"></i>
-                        </div>
-                        <h5>Customer Management</h5>
-                        <p class="text-muted">User profiles, wishlist, order history, and integrated support system.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Success Story -->
-    <section class="py-5 bg-primary text-white">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <blockquote class="blockquote mb-0">
-                        <p class="fs-4">"KalaGoon's e-commerce platform transformed our business. We went from ₹2 lakhs to ₹15 lakhs monthly revenue in just 6 months. The admin panel makes inventory management effortless, and customer support improved dramatically with the built-in ticketing system."</p>
-                        <footer class="blockquote-footer mt-3">
-                            <strong>Priya Sharma</strong> <cite title="Source Title">Founder, StyleCraft Fashion</cite>
-                        </footer>
-                    </blockquote>
+        <!-- Performance Metrics -->
+        <div class="row mb-4">
+            <div class="col-lg-6">
+                <div class="metrics-card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-tachometer-alt me-2"></i>Response Time Metrics
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="responseTimeChart" height="200"></canvas>
+                    </div>
                 </div>
-                <div class="col-lg-4 text-center">
-                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b5c5?w=150&h=150&fit=crop&crop=face" 
-                         alt="Client" class="rounded-circle mb-3" width="120" height="120">
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="metrics-card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-exchange-alt me-2"></i>Request Volume
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="requestVolumeChart" height="200"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="py-5 bg-light">
-        <div class="container text-center">
-            <h2 class="fw-bold mb-3">Ready to Launch Your Online Store?</h2>
-            <p class="lead mb-4">Join 200+ businesses that chose KalaGoon for their e-commerce success</p>
-            <div class="d-flex justify-content-center gap-3 flex-wrap">
-                <a href="mailto:prathmeshdhote@gmail.com" class="btn btn-primary btn-lg">
-                    <i class="fas fa-envelope me-2"></i>Get Free Quote
-                </a>
-                <button class="btn btn-outline-primary btn-lg" onclick="showDemo()">
-                    <i class="fas fa-play me-2"></i>Schedule Demo
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Shopping Cart Modal -->
-    <div class="modal fade" id="cartModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Shopping Cart</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div id="cartItems">
-                        <div class="text-center py-4">
-                            <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
-                            <h5>Your cart is empty</h5>
-                            <p class="text-muted">Add some products to get started!</p>
+        <!-- Business Impact Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="impact-showcase">
+                    <div class="impact-header">
+                        <h4 class="fw-bold mb-3">
+                            <i class="fas fa-rocket me-2 text-primary"></i>
+                            Business Impact: Cloud Microservices Success Story
+                        </h4>
+                    </div>
+                    
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <div class="impact-content">
+                                <blockquote class="blockquote">
+                                    <p class="fs-5">"KalaGoon's microservices architecture transformed our ability to scale and deploy. We went from monthly releases to daily deployments, reduced system downtime from hours to minutes, and can now handle 10x the traffic with automatic scaling. Our development team productivity increased by 300% because they can work independently on different services."</p>
+                                    <footer class="blockquote-footer mt-3">
+                                        <strong>Amit Sharma</strong> <cite title="Source Title">CTO, FinTech Innovations Ltd.</cite>
+                                    </footer>
+                                </blockquote>
+                                
+                                <div class="row mt-4">
+                                    <div class="col-md-3">
+                                        <div class="impact-metric">
+                                            <h3 class="text-success">99.9%</h3>
+                                            <p class="mb-0">Uptime Achieved</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="impact-metric">
+                                            <h3 class="text-primary">10x</h3>
+                                            <p class="mb-0">Scalability Improvement</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="impact-metric">
+                                            <h3 class="text-info">90%</h3>
+                                            <p class="mb-0">Deployment Time Reduction</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="impact-metric">
+                                            <h3 class="text-warning">50%</h3>
+                                            <p class="mb-0">Infrastructure Cost Savings</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 text-center">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face" 
+                                 alt="CTO" class="rounded-circle mb-3" width="150" height="150">
+                            <div class="contact-cta">
+                                <a href="mailto:prathmeshdhote@gmail.com" class="btn btn-primary">
+                                    <i class="fas fa-envelope me-2"></i>Get Your Architecture
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <div class="w-100 d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Total: ₹<span id="cartTotal">0</span></h5>
-                        <button class="btn btn-primary" onclick="proceedToCheckout()" disabled id="checkoutBtn">
-                            <i class="fas fa-credit-card me-2"></i>Proceed to Checkout
-                        </button>
+            </div>
+        </div>
+
+        <!-- Technology Stack -->
+        <div class="row">
+            <div class="col-12">
+                <div class="tech-stack-card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-layer-group me-2"></i>Technology Stack & Architecture
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-4">
+                            <div class="col-md-3">
+                                <div class="tech-category">
+                                    <h6 class="text-primary fw-bold">
+                                        <i class="fas fa-cube me-2"></i>Container Platform
+                                    </h6>
+                                    <div class="tech-tags">
+                                        <span class="badge bg-primary">Docker</span>
+                                        <span class="badge bg-primary">Kubernetes</span>
+                                        <span class="badge bg-primary">Helm Charts</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <div class="tech-category">
+                                    <h6 class="text-success fw-bold">
+                                        <i class="fas fa-cloud me-2"></i>Cloud Services
+                                    </h6>
+                                    <div class="tech-tags">
+                                        <span class="badge bg-success">Azure AKS</span>
+                                        <span class="badge bg-success">AWS EKS</span>
+                                        <span class="badge bg-success">Google GKE</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <div class="tech-category">
+                                    <h6 class="text-info fw-bold">
+                                        <i class="fas fa-code me-2"></i>Development
+                                    </h6>
+                                    <div class="tech-tags">
+                                        <span class="badge bg-info">ASP.NET Core</span>
+                                        <span class="badge bg-info">Node.js</span>
+                                        <span class="badge bg-info">Python Flask</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <div class="tech-category">
+                                    <h6 class="text-warning fw-bold">
+                                        <i class="fas fa-chart-bar me-2"></i>Monitoring
+                                    </h6>
+                                    <div class="tech-tags">
+                                        <span class="badge bg-warning text-dark">Prometheus</span>
+                                        <span class="badge bg-warning text-dark">Grafana</span>
+                                        <span class="badge bg-warning text-dark">ELK Stack</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -340,14 +357,13 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
-        <div class="container">
-            <div class="row">
+    <footer class="bg-dark text-white py-3 mt-5">
+        <div class="container-fluid">
+            <div class="row align-items-center">
                 <div class="col-md-6">
-                    <h5>TechMart Pro</h5>
                     <p class="mb-0">
-                        Built by <strong>KalaGoon Software Solutions Pvt. Ltd.</strong><br>
-                        <small>Complete e-commerce platform with advanced features</small>
+                        <strong>Built by KalaGoon Software Solutions Pvt. Ltd.</strong><br>
+                        <small>Cloud-native microservices architecture and DevOps solutions</small>
                     </p>
                 </div>
                 <div class="col-md-6 text-md-end">
@@ -366,6 +382,7 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/store.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/microservices.js"></script>
 </body>
 </html>
